@@ -31,7 +31,8 @@
             padding: 1rem 2rem;
             display: flex;
             justify-content: space-between;
-            align-items: center;
+            align-items: center;      
+
         }
         nav a {
             color: #fff;
@@ -86,6 +87,12 @@
 </head>
 <body>
     <nav>
+        @if (session('mensaje'))
+        <div class="alerta-exito" style="background:#EAF6EE; color:#1E7E52; padding:0.75rem 1rem; margin:1rem 0; border-radius: 8px;">
+            {{ session('mensaje') }}
+        </div>
+    @endif
+    
         <a href="{{ route('comercios.index') }}">Pasarela de Pagos · TaskBoard</a>
         <span class="tag">UPED · Integración de Sistemas</span>
     </nav>

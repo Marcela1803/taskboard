@@ -6,6 +6,9 @@
 
 @section('contenido')
     <h1>{{ $comercio->nombre_comercio }}</h1>
+    <a href="{{ route('transacciones.create', $comercio) }}">
+    + Nueva transacción
+    </a>
 
     <!-- Ejercicio Práctico: Resumen de actividad -->
     @if ($comercio->transacciones->count() === 0)
