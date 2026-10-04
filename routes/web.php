@@ -13,3 +13,11 @@ Route::get('/comercios', [ComercioController::class, 'index'])
 
 Route::get('/comercios/{comercio}', [ComercioController::class, 'show'])
     ->name('comercios.show');
+
+    Route::get('/practica/formulario-demo', function () {
+    return view('practica.formulario_demo');
+});
+
+Route::post('/practica/enviar', function () {
+    return 'Formulario recibido correctamente.';
+});

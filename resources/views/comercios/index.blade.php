@@ -6,7 +6,22 @@
 
 @section('contenido')
     <h1>Comercios afiliados a la pasarela</h1>
+    
+    <form action="{{ route('comercios.index') }}" method="GET">
+    <input type="text" name="buscar"
+           placeholder="Buscar comercio..."
+           value="{{ request('buscar') }}">
 
+    <select name="rubro">
+        <option value="">Todos los rubros</option>
+        <option value="Restaurante" {{ request('rubro') == 'Restaurante' ? 'selected' : '' }}>Restaurante</option>
+        <option value="Ferretería" {{ request('rubro') == 'Ferretería' ? 'selected' : '' }}>Ferretería</option>
+        <option value="Cafetería" {{ request('rubro') == 'Cafetería' ? 'selected' : '' }}>Cafetería</option>
+    </select>
+           
+    <button type="submit">Buscar</button>
+</form>
+   
     <ul class="comercios">
         @forelse ($comercios as $comercio)
             <li class="card">
